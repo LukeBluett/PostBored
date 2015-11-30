@@ -16,5 +16,10 @@ namespace PostBored
         {
             InitializeComponent();
         }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
