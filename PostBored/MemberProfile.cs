@@ -17,9 +17,28 @@ namespace PostBored
             InitializeComponent();
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void MemberProfile_Load(object sender, EventArgs e)
         {
+            //Get user details
 
+            //show/hide details based on if user is logged in or not
+
+            //get links details
+        }
+
+        private void btnUsername_Click(object sender, EventArgs e)
+        {
+            //link to users profile
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            //search users details
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            //logout of current user
         }
     }
 }
