@@ -59,6 +59,12 @@
     <Compile Include="LogIn.Designer.cs">
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemberProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberProfile.Designer.cs">
+      <DependentUpon>MemberProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="MembersDAO.cs" />
     <Compile Include="MessagesDAO.cs" />
     <Compile Include="PostsDAO.cs" />
@@ -69,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberProfile.resx">
+      <DependentUpon>MemberProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
