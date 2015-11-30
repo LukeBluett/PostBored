@@ -7,24 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OracleClient;
 
 namespace PostBored
 {
-    public partial class Form1 : Form
+    public partial class MemberProfile : Form
     {
-        public Form1()
+        public MemberProfile()
         {
             InitializeComponent();
-
-            
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label5_Click(object sender, EventArgs e)
         {
 
-            MembersDAO member = new MembersDAO();
-            member.SelectMember();
         }
     }
 }

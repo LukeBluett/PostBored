@@ -4,6 +4,7 @@ using System.Data.OracleClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PostBored
 {
@@ -25,10 +26,11 @@ namespace PostBored
                     string sql = "Select * from members";
                     command.CommandText = sql;
                     OracleDataReader reader = command.ExecuteReader();
+                    MessageBox.Show("starting");
                     while (reader.Read())
                     {
                         string field = (string)reader["Username"];
-                        Console.WriteLine(field);
+                        MessageBox.Show(field);
                     }
 
                     conn.Close();
