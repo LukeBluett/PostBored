@@ -12,6 +12,8 @@ namespace PostBored
 {
     public partial class LogIn : Form
     {
+        MembersDAO memberDAO;
+        Member member;
         public LogIn()
         {
             InitializeComponent();
