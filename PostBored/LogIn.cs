@@ -17,11 +17,13 @@ namespace PostBored
         public LogIn()
         {
             InitializeComponent();
+            memberDAO = new MembersDAO();
+            
         }
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            
+           
         }
     }
 }
