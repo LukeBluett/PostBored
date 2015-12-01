@@ -67,6 +67,7 @@
       <DependentUpon>MemberProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="MembersDAO.cs" />
+    <Compile Include="Menubar.cs" />
     <Compile Include="MessagesDAO.cs" />
     <Compile Include="PostsDAO.cs" />
     <Compile Include="Program.cs" />

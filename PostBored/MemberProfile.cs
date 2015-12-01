@@ -19,6 +19,8 @@ namespace PostBored
 
         private void MemberProfile_Load(object sender, EventArgs e)
         {
+            //Figure out if user is logged in
+            
             //Get user details
 
             //show/hide details based on if user is logged in or not

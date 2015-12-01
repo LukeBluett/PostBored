@@ -66,6 +66,7 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,13 +76,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.btnSearch);
             this.panel1.Controls.Add(this.btnLogout);
             this.panel1.Controls.Add(this.btnUsername);
             this.panel1.Location = new System.Drawing.Point(2, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(690, 34);
+            this.panel1.Size = new System.Drawing.Size(707, 34);
             this.panel1.TabIndex = 0;
             // 
             // textBox1
@@ -103,7 +105,7 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(587, 0);
+            this.btnLogout.Location = new System.Drawing.Point(603, 0);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(103, 34);
             this.btnLogout.TabIndex = 1;
@@ -137,7 +139,7 @@
             this.panel2.Controls.Add(this.linkLabel1);
             this.panel2.Location = new System.Drawing.Point(2, 43);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(690, 34);
+            this.panel2.Size = new System.Drawing.Size(706, 34);
             this.panel2.TabIndex = 1;
             // 
             // linkLabel11
@@ -276,7 +278,7 @@
             this.panel3.Controls.Add(this.pictureBox1);
             this.panel3.Location = new System.Drawing.Point(2, 83);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(690, 352);
+            this.panel3.Size = new System.Drawing.Size(706, 352);
             this.panel3.TabIndex = 2;
             // 
             // btnEditNumber
@@ -458,11 +460,20 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(494, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(103, 34);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Username";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // MemberProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 436);
+            this.ClientSize = new System.Drawing.Size(709, 436);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -520,5 +531,6 @@
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
