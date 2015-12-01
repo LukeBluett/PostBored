@@ -21,6 +21,7 @@ namespace PostBored
         {
             //Figure out if user is logged in
             
+
             //Get user details
 
             //show/hide details based on if user is logged in or not
@@ -41,6 +42,16 @@ namespace PostBored
         private void btnLogout_Click(object sender, EventArgs e)
         {
             //logout of current user
+        }
+
+        private void LogInFormOrLogOutForm()
+        {
+            LogInFormOrLogOutForm();
+            Menubar menu = new Menubar();
+
+            menu.UsernameBtn(btnUsername);
+
+            menu.HideCreatePost(btnCreatePost);
         }
     }
 }

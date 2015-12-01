@@ -13,7 +13,7 @@ namespace PostBored
     public partial class LogIn : Form
     {
         MembersDAO memberDAO;
-        Member member;
+        //Member member;
         public LogIn()
         {
             InitializeComponent();

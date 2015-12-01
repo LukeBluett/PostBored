@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace PostBored
 {
-    class MembersDAO 
+    class MembersDAO
     {
 
         string connectionString = PostBored.connection.GetConnection();
@@ -57,6 +57,5 @@ namespace PostBored
         {
 
         }
-        public 
     }
 }
