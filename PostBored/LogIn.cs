@@ -12,9 +12,18 @@ namespace PostBored
 {
     public partial class LogIn : Form
     {
+        MembersDAO memberDAO;
+        Member member;
         public LogIn()
         {
             InitializeComponent();
+            memberDAO = new MembersDAO();
+            
+        }
+
+        private void btnLogIn_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
