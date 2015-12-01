@@ -11,9 +11,13 @@ namespace PostBored
     class MembersDAO 
     {
 
-        string connectionString = PostBored.connection.GetConnection();
+        private string connectionString = PostBored.connection.GetConnection();
+        private string username, email;
+        private long phone;
+        private DateTime joinDate, lastSeen;
+        private 
 
-        public void SelectMember()
+        public void SelectMember(String username,String password)
         {
             try
             {
@@ -23,14 +27,14 @@ namespace PostBored
                     conn.Open();
 
                     OracleCommand command = conn.CreateCommand();
-                    string sql = "Select * from members";
+                    string sql = "Select * from members where username = " + username+ "&& password =" + password  ;
                     command.CommandText = sql;
                     OracleDataReader reader = command.ExecuteReader();
                     MessageBox.Show("starting");
                     while (reader.Read())
                     {
-                        string field = (string)reader["Username"];
-                        MessageBox.Show(field);
+                        username = (string)reader["Username"];
+                     
                     }
 
                     conn.Close();
