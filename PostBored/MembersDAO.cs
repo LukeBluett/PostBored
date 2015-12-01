@@ -15,19 +15,25 @@ namespace PostBored
         private string username, email;
         private long phone;
         private DateTime joinDate, lastSeen;
-        private 
+        private System.Drawing.Image image;
+        OracleConnection conn;
 
-        public void SelectMember(String username,String password)
+        public MembersDAO()
+        {
+            conn = new OracleConnection();
+            conn.ConnectionString = connectionString;
+        }
+
+        public void SelectAllMembers()
         {
             try
             {
-                using (OracleConnection conn = new OracleConnection())
-                {
-                    conn.ConnectionString = connectionString;
+                
+                    
                     conn.Open();
 
                     OracleCommand command = conn.CreateCommand();
-                    string sql = "Select * from members where username = " + username+ "&& password =" + password  ;
+                    string sql = "Select * from members;" ;
                     command.CommandText = sql;
                     OracleDataReader reader = command.ExecuteReader();
                     MessageBox.Show("starting");
@@ -38,13 +44,28 @@ namespace PostBored
                     }
 
                     conn.Close();
-                }
+                
             }
             catch (Exception e)
             {
                 Console.WriteLine("An error occurred:", e);
             }
 
+        }
+        public Member AuthenticateUser(String username,String password)
+        {
+            
+            conn.Open();
+
+            OracleCommand command = conn.CreateCommand();
+            string sql = "Select * from members where username = " + username + "&& password =" + password;
+            command.CommandText = sql;
+            OracleDataReader reader = command.ExecuteReader();
+
+
+            Member member = new Member();
+
+            return Member;
         }
 
         public void InsertMember()
