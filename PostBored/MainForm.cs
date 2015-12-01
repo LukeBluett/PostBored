@@ -21,6 +21,7 @@ namespace PostBored
         {
             insertDataGrdviewSubscribeTags();
             insertUsersFollwed();
+            TagsDAO.subscribeTags();
         }
 
         private void insertDataGrdviewSubscribeTags()

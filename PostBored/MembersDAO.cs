@@ -55,7 +55,7 @@ namespace PostBored
             }
 
         }
-        public Member AuthenticateUser(String username,String password)
+      /*  public Member AuthenticateUser(String username,String password)
         {
             
             conn.Open();
@@ -81,7 +81,7 @@ namespace PostBored
             Member member = null;
 
             return member;
-        }
+        }*/
         public void InsertMember()
         {
 

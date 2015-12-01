@@ -24,7 +24,7 @@ namespace PostBored
         {
 
             MembersDAO member = new MembersDAO();
-            member.SelectMember();
+            //member.SelectMember();
         }
     }
 }

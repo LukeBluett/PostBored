@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 namespace PostBored
 {
     public class Member
@@ -61,4 +61,4 @@ namespace PostBored
         }
 
     }
-}
+}*/
