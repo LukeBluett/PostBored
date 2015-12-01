@@ -14,7 +14,7 @@ namespace PostBored
 
        static public string GetConnection()
         {
-            return "Data Source=;User ID=;Password=";
+            return "Data Source=cp3dbinstance.c4pxnpz4ojk8.us-east-1.rds.amazonaws.com;User ID=sw5;Password=sw5";
         }
 
        public void StartConnection()
