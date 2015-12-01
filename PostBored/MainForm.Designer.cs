@@ -35,10 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.grdSubscribeTags = new System.Windows.Forms.DataGridView();
+            this.grdUsersFollowed = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnCreatePost = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSubscribeTags)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsersFollowed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnUsername
@@ -47,19 +50,19 @@
             this.btnUsername.Name = "btnUsername";
             this.btnUsername.Size = new System.Drawing.Size(101, 31);
             this.btnUsername.TabIndex = 0;
-            this.btnUsername.Text = "button1";
             this.btnUsername.UseVisualStyleBackColor = true;
+            this.btnUsername.Click += new System.EventHandler(this.btnUsername_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(261, 5);
+            this.textBox1.Location = new System.Drawing.Point(274, 6);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(154, 20);
+            this.textBox1.Size = new System.Drawing.Size(172, 20);
             this.textBox1.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(421, -1);
+            this.btnSearch.Location = new System.Drawing.Point(452, 0);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(66, 31);
             this.btnSearch.TabIndex = 2;
@@ -74,6 +77,7 @@
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // label1
             // 
@@ -87,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 72);
+            this.label2.Location = new System.Drawing.Point(386, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 5;
@@ -102,29 +106,63 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Users Followed";
             // 
+            // grdSubscribeTags
+            // 
+            this.grdSubscribeTags.AllowUserToAddRows = false;
+            this.grdSubscribeTags.AllowUserToDeleteRows = false;
+            this.grdSubscribeTags.AllowUserToOrderColumns = true;
+            this.grdSubscribeTags.AllowUserToResizeColumns = false;
+            this.grdSubscribeTags.AllowUserToResizeRows = false;
+            this.grdSubscribeTags.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdSubscribeTags.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grdSubscribeTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSubscribeTags.Location = new System.Drawing.Point(-1, 97);
+            this.grdSubscribeTags.Name = "grdSubscribeTags";
+            this.grdSubscribeTags.RowHeadersVisible = false;
+            this.grdSubscribeTags.Size = new System.Drawing.Size(189, 516);
+            this.grdSubscribeTags.TabIndex = 7;
+            // 
+            // grdUsersFollowed
+            // 
+            this.grdUsersFollowed.AllowUserToAddRows = false;
+            this.grdUsersFollowed.AllowUserToDeleteRows = false;
+            this.grdUsersFollowed.AllowUserToOrderColumns = true;
+            this.grdUsersFollowed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdUsersFollowed.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grdUsersFollowed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdUsersFollowed.Location = new System.Drawing.Point(677, 97);
+            this.grdUsersFollowed.Name = "grdUsersFollowed";
+            this.grdUsersFollowed.RowHeadersVisible = false;
+            this.grdUsersFollowed.Size = new System.Drawing.Size(189, 516);
+            this.grdUsersFollowed.TabIndex = 8;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(-1, 97);
+            this.dataGridView1.Location = new System.Drawing.Point(223, 97);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(153, 466);
-            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Size = new System.Drawing.Size(420, 516);
+            this.dataGridView1.TabIndex = 9;
             // 
-            // dataGridView2
+            // btnCreatePost
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(703, 97);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(153, 466);
-            this.dataGridView2.TabIndex = 8;
+            this.btnCreatePost.Location = new System.Drawing.Point(662, -1);
+            this.btnCreatePost.Name = "btnCreatePost";
+            this.btnCreatePost.Size = new System.Drawing.Size(115, 31);
+            this.btnCreatePost.TabIndex = 10;
+            this.btnCreatePost.Text = "Create Post";
+            this.btnCreatePost.UseVisualStyleBackColor = true;
+            this.btnCreatePost.Click += new System.EventHandler(this.btnCreatePost_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 563);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(864, 611);
+            this.Controls.Add(this.btnCreatePost);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grdUsersFollowed);
+            this.Controls.Add(this.grdSubscribeTags);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -133,9 +171,11 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnUsername);
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.Text = "PostBored";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.grdSubscribeTags)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdUsersFollowed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,7 +190,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DataGridView grdSubscribeTags;
+        private System.Windows.Forms.DataGridView grdUsersFollowed;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnCreatePost;
     }
 }
