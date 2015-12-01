@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OracleClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,9 @@ namespace PostBored
         private DateTime joinDate, lastSeen;
         private System.Drawing.Image image;
         OracleConnection conn;
-
+        OracleCommand cmd;
+        OracleDataAdapter da;
+        DataSet ds;
         public MembersDAO()
         {
             conn = new OracleConnection();
@@ -57,17 +60,28 @@ namespace PostBored
             
             conn.Open();
 
-            OracleCommand command = conn.CreateCommand();
+            cmd = conn.CreateCommand();
             string sql = "Select * from members where username = " + username + "&& password =" + password;
-            command.CommandText = sql;
-            OracleDataReader reader = command.ExecuteReader();
+            cmd = new OracleCommand(sql);
+            cmd.CommandType = CommandType.Text;
+            da = new OracleDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "ss");
 
 
-            Member member = new Member();
 
-            return Member;
+
+            Member member = createMemberImpl(da);
+
+            return member;
         }
 
+        private Member createMemberImpl(OracleDataAdapter ds)
+        {
+            Member member = null;
+
+            return member;
+        }
         public void InsertMember()
         {
 
