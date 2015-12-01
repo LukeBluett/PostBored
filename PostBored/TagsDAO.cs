@@ -40,14 +40,44 @@ namespace PostBored
                     arraylist.Add(tag);
 
                 }
+
+                MessageBox.Show("Added tag to arraylist");
                 //get last visted
-         
-                var list = new List<KeyValuePair<string,int>>();
-                while (arraylist.Count !=0)
+                string dateString = "5/1/2008 8:30:52 AM";
+                DateTime lastVisted = DateTime.Parse(dateString,
+                                          System.Globalization.CultureInfo.InvariantCulture);
+
+                MessageBox.Show("created time");
+                Dictionary<string,int> dict = new Dictionary<string,int>();
+
+                MessageBox.Show("created dictionary");
+                while (arraylist.Count != 0)
                 {
 
+                    MessageBox.Show("went inside the while");
+                    for (int i = 0; i < arraylist.Count; i++)
+                    {
 
-                    string sql2 = "select count(Post_ID) where tag '" + tag+"'AND '"+lastVisted + "'< Post_time";
+                        MessageBox.Show("Went inside the for");
+                        MessageBox.Show("Item in array "+arraylist[i]);
+                        string sql2 = "select count(Post_ID) where tag '" + arraylist[i] + "'AND '" + lastVisted + "'< Post_time";
+                        command.CommandText = sql2;
+
+                        MessageBox.Show("created the command");
+                        int numOfTimePosted = (int)command.ExecuteScalar();
+
+                        MessageBox.Show("executing command");
+                        string tag = arraylist[i].ToString();
+                        dict.Add(tag,numOfTimePosted);
+
+                        MessageBox.Show("Added item to dictionary");
+                        
+                        
+                    }
+                }
+                foreach (KeyValuePair<string, int> kv in dict)
+                {
+                    MessageBox.Show(kv.ToString());
                 }
             }
             finally
