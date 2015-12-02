@@ -1,4 +1,5 @@
-﻿/*using System;
+﻿using System;
+using System.Drawing;
 namespace PostBored
 {
     public class Member
@@ -11,10 +12,10 @@ namespace PostBored
         private System.Drawing.Image image;
 
 
-        public Member(String username, String email, long phone, Drawing.Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen)
+        public Member(String username, String email, long phone,Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen)
         {
-            this.username = username;
-            this.email = email;
+            Username = username;
+            Email = email;
             this.phone = phone;
             this.joinDate = joinDate;
             this.lastSeen = lastSeen;
@@ -23,42 +24,42 @@ namespace PostBored
         }
 
 
-        public string username
+        public string Username
         {
             get { return username; }
             set { username = value; }
 
         }
-        public string email
+        public string Email
         {
             get { return email; }
             set { email = value; }
         }
-        public long phone
+        public long Phone
         {
             get { return phone; }
-            set { phoone = value; }
+            set { phone = value; }
         }
-        public Drawing.Image image
+        public Image Image
         {
             get { return image; }
             set { image = value; }
         }
-        public DateTime joinDate
+        public DateTime JoinDate
         {
             get { return joinDate; }
-            set { image = value; }
+            set { joinDate = value; }
         }
-        public bool msgPrivate
+        public bool MsgPrivate
         {
             get { return msgPrivate; }
             set { msgPrivate = value; }
         }
-        public DateTime lastSeen
+        public DateTime LastSeen
         {
             get { return lastSeen; }
             set { lastSeen = value; }
         }
 
     }
-}*/
+}
