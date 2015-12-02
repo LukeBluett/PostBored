@@ -21,6 +21,7 @@ namespace PostBored
         OracleCommand cmd;
         OracleDataAdapter da;
         DataSet ds;
+        Member member;
         public MembersDAO()
         {
             conn = new OracleConnection();
@@ -55,9 +56,16 @@ namespace PostBored
             }
 
         }
-      /*  public Member AuthenticateUser(String username,String password)
+
+        /**
+        * Creates member if username && password match
+        * returns null if not
+        *TODO
+        *Handle errors
+        **/
+        public Member AuthenticateUser(String username, String password)
         {
-            
+
             conn.Open();
 
             cmd = conn.CreateCommand();
@@ -69,19 +77,19 @@ namespace PostBored
             da.Fill(ds, "ss");
 
 
-
-
-            Member member = createMemberImpl(da);
-
-            return member;
+            if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password){
+                member = createMember(ds);
+                return member;
+        }
+            return null; 
         }
 
-        private Member createMemberImpl(OracleDataAdapter ds)
+        private Member createMember(DataSet ds)
         {
             Member member = null;
 
             return member;
-        }*/
+        }
         public void InsertMember()
         {
 
