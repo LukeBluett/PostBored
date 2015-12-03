@@ -14,7 +14,7 @@ namespace PostBored
     {
 
         MembersDAO memDao;
-        //string username2 = "luke1000";
+        string username2 = "Luke1000";
         private string tag;
         public ArrayList arraylist;
         public Dictionary<string, int> dict;
@@ -42,34 +42,36 @@ namespace PostBored
             {
                 conn.Open();
                 OracleCommand command = conn.CreateCommand();
-                string sql = "Select tag from Follow_tag where Username = '" + username + "'";
+                string sql = "Select tag from Follow_Tag where Username = '" + username2 + "'";
                 command.CommandText = sql;
                 OracleDataReader reader = command.ExecuteReader();
                 ArrayList arraylist = new ArrayList();
                 while (reader.Read())
                 {
+                    MessageBox.Show("TAG: " + tag);
                     tag = (string)reader["Tag"];
                     arraylist.Add(tag);
-
                 }
-                MessageBox.Show("Added tag to arraylist");
-           
-                while (arraylist.Count != 0)
+                MessageBox.Show("Added tag to arraylist --- " + arraylist.Count);
+                int size = arraylist.Count;
+                while (size > 0)
                 {
 
                     MessageBox.Show("went inside the while");
-                    for (int i = 0; i < arraylist.Count; i++)
+                    for (int i = 0; i < size; i++)
                     {
 
                         MessageBox.Show("Went inside the for");
                         MessageBox.Show("Item in array "+arraylist[i]);
-                        string sql2 = "select count(Post_ID) from Posts where tag '" + arraylist[i] + "'AND '" + lastseen + "'< Post_time";
+
+                        string sql2 = "select count(Post_ID) from Posts where tag ='" + arraylist[i] + "'";
+                        //AND '" + lastseen + "'< Post_time
                         command.CommandText = sql2;
 
                         MessageBox.Show("created the command");
                         int numOfTimePosted = (int)command.ExecuteScalar();
 
-                        MessageBox.Show("executing command");
+                        MessageBox.Show("executing command"+ numOfTimePosted);
                         string tag = arraylist[i].ToString();
                         dict.Add(tag,numOfTimePosted);
 

@@ -11,8 +11,9 @@ namespace PostBored
     {
 
        OracleConnection conn = new OracleConnection();
+      
 
-       static public string GetConnection()
+        static public string GetConnection()
         {
             return "";
         }
