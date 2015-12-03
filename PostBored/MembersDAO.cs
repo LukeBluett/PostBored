@@ -13,9 +13,9 @@ namespace PostBored
     {
 
         private string connectionString = PostBored.connection.GetConnection();
-        private string username, email;
-        private long phone;
-        private DateTime joinDate, lastSeen;
+        public string username, email;
+        public long phone;
+        public DateTime joinDate, lastSeen;
         private System.Drawing.Image image;
         OracleConnection conn;
         OracleCommand cmd;
@@ -44,6 +44,8 @@ namespace PostBored
                     while (reader.Read())
                     {
                         username = (string)reader["Username"];
+                        //getsLastSeen
+                        lastSeen = (DateTime)reader["Last_Seen"];
                      
                     }
 
@@ -77,19 +79,21 @@ namespace PostBored
             da.Fill(ds, "ss");
 
 
-            if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password){
+            if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password)){
                 member = createMember(ds);
                 return member;
         }
             return null; 
         }
-
+        
         private Member createMember(DataSet ds)
         {
             Member member = null;
 
             return member;
         }
+        //getting last seen
+
         public void InsertMember()
         {
 

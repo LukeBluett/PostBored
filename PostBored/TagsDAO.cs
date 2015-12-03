@@ -13,44 +13,47 @@ namespace PostBored
     class TagsDAO
     {
 
-        //private string connectionString = PostBored.connection.GetConnection();
-       
+        MembersDAO memDao;
+        //string username2 = "luke1000";
+        private string tag;
+        public ArrayList arraylist;
+        public Dictionary<string, int> dict;
+        private string connectionString = PostBored.connection.GetConnection();
+        OracleConnection conn;
+        string username = "";
+        DateTime lastseen;
+
         public TagsDAO()
         {
-        }
-        public static void subscribeTags()
-        {
-            String username2 = "luke1000";
 
-            OracleConnection conn = new OracleConnection();
-            conn.ConnectionString = PostBored.connection.GetConnection();
+            conn = new OracleConnection();
+            conn.ConnectionString = connectionString;
+            memDao = new MembersDAO();
+            lastseen = memDao.lastSeen;
+            username = memDao.username;
+            //Runs Selecttag method ??
+            arraylist = new ArrayList();
+            dict = new Dictionary<string, int>();
+        }
+
+        public void SelectTags()
+        {
             try
             {
-                OracleCommand command = conn.CreateCommand();
-                string sql = "Select tag from Follow_tag where Username = '" + username2 + "'";
-                command.CommandText = sql;
-
-                MessageBox.Show("got to here5"+sql);
                 conn.Open();
+                OracleCommand command = conn.CreateCommand();
+                string sql = "Select tag from Follow_tag where Username = '" + username + "'";
+                command.CommandText = sql;
                 OracleDataReader reader = command.ExecuteReader();
                 ArrayList arraylist = new ArrayList();
                 while (reader.Read())
                 {
-                    string tag = (string)reader["Tag"];
+                    tag = (string)reader["Tag"];
                     arraylist.Add(tag);
 
                 }
-
                 MessageBox.Show("Added tag to arraylist");
-                //get last visted
-                string dateString = "5/1/2008 8:30:52 AM";
-                DateTime lastVisted = DateTime.Parse(dateString,
-                                          System.Globalization.CultureInfo.InvariantCulture);
-
-                MessageBox.Show("created time");
-                Dictionary<string,int> dict = new Dictionary<string,int>();
-
-                MessageBox.Show("created dictionary");
+           
                 while (arraylist.Count != 0)
                 {
 
@@ -60,7 +63,7 @@ namespace PostBored
 
                         MessageBox.Show("Went inside the for");
                         MessageBox.Show("Item in array "+arraylist[i]);
-                        string sql2 = "select count(Post_ID) where tag '" + arraylist[i] + "'AND '" + lastVisted + "'< Post_time";
+                        string sql2 = "select count(Post_ID) from Posts where tag '" + arraylist[i] + "'AND '" + lastseen + "'< Post_time";
                         command.CommandText = sql2;
 
                         MessageBox.Show("created the command");
@@ -75,10 +78,7 @@ namespace PostBored
                         
                     }
                 }
-                foreach (KeyValuePair<string, int> kv in dict)
-                {
-                    MessageBox.Show(kv.ToString());
-                }
+                
             }
             finally
             {
