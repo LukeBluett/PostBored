@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="connection.cs" />
+    <Compile Include="FollowMemberDAO.cs" />
     <Compile Include="FollowMembersDAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

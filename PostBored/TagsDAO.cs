@@ -26,7 +26,7 @@ namespace PostBored
 
             conn = new OracleConnection();
             conn.ConnectionString = connectionString;
-       
+            //lastseen = new DateTime("01-DEC-15 12:57:37.00","");
             //Runs Selecttag method ??
             arraylist = new ArrayList();
             dict = new Dictionary<string, int>();
@@ -59,14 +59,14 @@ namespace PostBored
                         //AND '" + lastseen + "'< Post_time
                         command.CommandText = sql2;
 
-                       // MessageBox.Show(""+sql2);
+                        //MessageBox.Show(""+sql2);
                         string num = command.ExecuteScalar().ToString();
                         numOfTimePosted = Int32.Parse(num);
 
                         string tag = arraylist[i].ToString();
                         dict.Add(tag,numOfTimePosted);
 
-                        MessageBox.Show("Added item to dictionary");
+                        //MessageBox.Show("Added item to dictionary");
                         
                         
                     }

@@ -29,7 +29,6 @@ namespace PostBored
         {
             tagsDao.SelectTags();
             insertDataGrdviewSubscribeTags();
-            MessageBox.Show("Got here");
         }
 
         private void insertDataGrdviewSubscribeTags()
@@ -39,13 +38,24 @@ namespace PostBored
             grdSubscribeTags.Columns[1].Name = "Number Of Posts";
             
             int size = dict.Count();
-            //foreach (KeyValuePair<string, int> kv in dict)
-            for (int i = 0; i > size;i++ )
+            /*foreach (KeyValuePair<string, int> kv in dict){
+                int i = 0;
+                grdSubscribeTags.Rows[i].Cells[0].Value = kv.Key.ToString();
+                grdSubscribeTags.Rows[i].Cells[1].Value = kv.Value.ToString();
+                i++;
+            }*/
+            int i = 1;
+            grdSubscribeTags.Rows.Add(dict.Count);
+
+            foreach (KeyValuePair<string, int> kv in dict)
             {
-                //grdSubscribeTags.Rows[i].Cells[0].Value = kv.Key.ToString();
-                //grdSubscribeTags.Rows[i].Cells[1].Value = kv.Value.ToString();
+                MessageBox.Show("wwwwwwww"+kv.Key.ToString()+" : "+kv.Value);
+                string key = kv.Key.ToString();
+                int value = kv.Value;
+                //add the values to the datagridview
 
             }
+
             
             
         }
