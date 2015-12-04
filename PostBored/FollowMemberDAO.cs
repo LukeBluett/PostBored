@@ -32,7 +32,7 @@ namespace PostBored
                 OracleCommand command = conn.CreateCommand();
                 string sql = "Select FRIEND_USERNAME from FOLLOW_MEMBERS where USERNAME = '" + username2 + "'";
                 command.CommandText = sql;
-                MessageBox.Show(""+sql);
+                //MessageBox.Show(""+sql);
                 OracleDataReader reader = command.ExecuteReader();
                 ArrayList listOfMembersFollowed = new ArrayList();
                 while (reader.Read())
@@ -41,7 +41,7 @@ namespace PostBored
                     follwerUsername = (string)reader["Friend_Username"];
                     listOfMembersFollowed.Add(follwerUsername);
                 }
-                MessageBox.Show("Added tag to arraylist --- " + listOfMembersFollowed.Count);
+               // MessageBox.Show("Added tag to arraylist --- " + listOfMembersFollowed.Count);
 
                 int size = listOfMembersFollowed.Count;
                 for (int i = 0; i < size; i++)
@@ -52,15 +52,15 @@ namespace PostBored
                     //AND '" + lastseen + "'< Post_time
                     command.CommandText = sql2;
 
-                    MessageBox.Show(""+sql2);
+                    //MessageBox.Show(""+sql2);
                     string num = command.ExecuteScalar().ToString();
                     numOfPosts = Int32.Parse(num);
-                    MessageBox.Show("Added to the dictionary" + numOfPosts);
+                    //MessageBox.Show("Added to the dictionary" + numOfPosts);
                     if (numOfPosts != 0)
                     {
                         string userFollowed = listOfMembersFollowed[i].ToString();
                         followMember.Add(userFollowed, numOfPosts);
-                        MessageBox.Show("Added to the dictionary");
+                        //MessageBox.Show("Added to the dictionary");
                     }
                 }
             }

@@ -62,11 +62,11 @@ namespace PostBored
                         string num = command.ExecuteScalar().ToString();
                         numOfTimePosted = Int32.Parse(num);
                         if (numOfTimePosted != 0)
-                        {
-                            string tag = arraylist[i].ToString();
-                            dict.Add(tag, numOfTimePosted);
+                    {
+                        string tag = arraylist[i].ToString();
+                        dict.Add(tag,numOfTimePosted);
 
-                            //MessageBox.Show("Added item to dictionary");
+                        //MessageBox.Show("Added item to dictionary");
                         }
                         
                     }
