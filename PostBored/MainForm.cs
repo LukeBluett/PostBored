@@ -37,14 +37,16 @@ namespace PostBored
             grdSubscribeTags.ColumnCount = 2;
             grdSubscribeTags.Columns[0].Name = "Tag Name";
             grdSubscribeTags.Columns[1].Name = "Number Of Posts";
-            int i = 1;
-            foreach (KeyValuePair<string, int> kv in dict)
+            
+            int size = dict.Count();
+            //foreach (KeyValuePair<string, int> kv in dict)
+            for (int i = 0; i > size;i++ )
             {
+                //grdSubscribeTags.Rows[i].Cells[0].Value = kv.Key.ToString();
+                //grdSubscribeTags.Rows[i].Cells[1].Value = kv.Value.ToString();
 
-                grdSubscribeTags.Columns[i].Name = kv.Key;
-                grdSubscribeTags.Columns[i].Name = kv.Value.ToString();
-                i++;
             }
+            
             
         }
         private void insertUsersFollwed()
