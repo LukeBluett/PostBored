@@ -52,7 +52,6 @@ namespace PostBored
                 int size = arraylist.Count;
                     for (int i = 0; i < size; i++)
                     {
-
                         //MessageBox.Show("Item in array "+arraylist[i].ToString());
 
                         string sql2 = "Select count(*) As post_id from posts where tag ='" + arraylist[i].ToString() + "'";
@@ -62,12 +61,13 @@ namespace PostBored
                         //MessageBox.Show(""+sql2);
                         string num = command.ExecuteScalar().ToString();
                         numOfTimePosted = Int32.Parse(num);
+                        if (numOfTimePosted != 0)
+                        {
+                            string tag = arraylist[i].ToString();
+                            dict.Add(tag, numOfTimePosted);
 
-                        string tag = arraylist[i].ToString();
-                        dict.Add(tag,numOfTimePosted);
-
-                        //MessageBox.Show("Added item to dictionary");
-                        
+                            //MessageBox.Show("Added item to dictionary");
+                        }
                         
                     }
                 
