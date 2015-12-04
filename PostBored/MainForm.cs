@@ -13,21 +13,22 @@ namespace PostBored
 {
     public partial class MainForm : Form
     {
-        MembersDAO memberDAO;
         TagsDAO tagsDao;
+        FollowMemberDAO fmember;
         Member member;
         Dictionary<string, int> dict;
 
         public MainForm()
         {
             InitializeComponent();
-            memberDAO = new MembersDAO();
+            fmember = new FollowMemberDAO();
             tagsDao = new TagsDAO();
             dict = tagsDao.dict;
     }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            tagsDao.SelectTags();
+            //tagsDao.SelectTags();
+            fmember.SelectFriendUsername();
             insertDataGrdviewSubscribeTags();
         }
 
