@@ -13,23 +13,47 @@ namespace PostBored
 {
     public partial class MainForm : Form
     {
+        MembersDAO memDAO;
         TagsDAO tagsDao;
         FollowMemberDAO fmember;
         Member member;
         Dictionary<string, int> dict;
+        Boolean isLoggedIn; 
+        
 
         public MainForm()
         {
             InitializeComponent();
+            memDAO = new MembersDAO();
             fmember = new FollowMemberDAO();
             tagsDao = new TagsDAO();
             dict = tagsDao.dict;
+            isLoggedIn = memDAO.isLogedIn;
+
+            if (isLoggedIn == false)
+            {
+                tagLabel.Text = "Popular Tags";
+                userLabel.Text = "Popular Members";
+                btnCreatePost.Text = "Login";
+                btnLogout.Text = "Create Account";
+                btnUsername.Hide();
+
+            }
+            else
+            {
+                tagLabel.Text = "Subscribed Tags";
+                userLabel.Text = "Users Followed";
+                btnCreatePost.Text = "Create Post";
+                btnUsername.Text = "" + fmember.username2;
+                btnLogout.Text = "Logout";
+            }
+
     }
         private void MainForm_Load(object sender, EventArgs e)
         {
             //tagsDao.SelectTags();
-            fmember.SelectFriendUsername();
-            insertDataGrdviewSubscribeTags();
+            //fmember.SelectFriendUsername();
+            //insertDataGrdviewSubscribeTags();
         }
 
         private void insertDataGrdviewSubscribeTags()
@@ -69,12 +93,35 @@ namespace PostBored
 
         private void btnCreatePost_Click(object sender, EventArgs e)
         {
+            if (isLoggedIn == false)
+            {
+                //go to log in
+                LogIn frmLogIn = new LogIn();
+                frmLogIn.Show();
+            }
+            else
+            {
+                //go to create post
+
+                //LogIn frmLogIn = new LogIn();
+                //frmLogIn.Show();
+            }
 
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-
+            if (isLoggedIn == true)
+            {
+                //go to log out
+                this.Close();
+                MainForm frmMain = new MainForm();
+                frmMain.Show();
+            }
+            else
+            {
+                //go to create account
+            }
         }
 
         private void btnUsername_Click(object sender, EventArgs e)

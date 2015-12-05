@@ -22,6 +22,8 @@ namespace PostBored
         OracleDataAdapter da;
         DataSet ds;
         Member member;
+        // i put this in here so i can check if the user is loged in r not
+        public Boolean isLogedIn = false;
         public MembersDAO()
         {
             conn = new OracleConnection();
@@ -81,6 +83,7 @@ namespace PostBored
 
             if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password)){
                 member = createMember(ds);
+                isLogedIn = true;
                 return member;
         }
             return null; 

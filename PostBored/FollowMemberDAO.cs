@@ -11,7 +11,7 @@ namespace PostBored
 {
     class FollowMemberDAO
     {
-        string username2 = "Luke1000";
+        public string username2 = "Luke1000";
         private string follwerUsername = "";
         private string connectionString = PostBored.connection.GetConnection();
         public Dictionary<string, int> followMember;

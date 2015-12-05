@@ -32,13 +32,14 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tagLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.userLabel = new System.Windows.Forms.Label();
             this.grdUsersFollowed = new System.Windows.Forms.DataGridView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnCreatePost = new System.Windows.Forms.Button();
             this.grdSubscribeTags = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.grdUsersFollowed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grdSubscribeTags)).BeginInit();
@@ -46,6 +47,7 @@
             // 
             // btnUsername
             // 
+            this.btnUsername.AutoSize = true;
             this.btnUsername.Location = new System.Drawing.Point(-1, -1);
             this.btnUsername.Name = "btnUsername";
             this.btnUsername.Size = new System.Drawing.Size(101, 31);
@@ -71,7 +73,8 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.Location = new System.Drawing.Point(783, 0);
+            this.btnLogout.AutoSize = true;
+            this.btnLogout.Location = new System.Drawing.Point(757, -1);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(73, 30);
             this.btnLogout.TabIndex = 3;
@@ -79,14 +82,14 @@
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // label1
+            // tagLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 72);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Subscribed Tags";
+            this.tagLabel.AutoSize = true;
+            this.tagLabel.Location = new System.Drawing.Point(13, 72);
+            this.tagLabel.Name = "tagLabel";
+            this.tagLabel.Size = new System.Drawing.Size(87, 13);
+            this.tagLabel.TabIndex = 4;
+            this.tagLabel.Text = "Subscribed Tags";
             // 
             // label2
             // 
@@ -97,14 +100,14 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Trending Today";
             // 
-            // label3
+            // userLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(723, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Users Followed";
+            this.userLabel.AutoSize = true;
+            this.userLabel.Location = new System.Drawing.Point(723, 72);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(79, 13);
+            this.userLabel.TabIndex = 6;
+            this.userLabel.Text = "Users Followed";
             // 
             // grdUsersFollowed
             // 
@@ -130,7 +133,8 @@
             // 
             // btnCreatePost
             // 
-            this.btnCreatePost.Location = new System.Drawing.Point(662, -1);
+            this.btnCreatePost.AutoSize = true;
+            this.btnCreatePost.Location = new System.Drawing.Point(636, 0);
             this.btnCreatePost.Name = "btnCreatePost";
             this.btnCreatePost.Size = new System.Drawing.Size(115, 31);
             this.btnCreatePost.TabIndex = 10;
@@ -162,9 +166,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.grdUsersFollowed);
             this.Controls.Add(this.grdSubscribeTags);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.userLabel);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tagLabel);
             this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.textBox1);
@@ -186,12 +190,13 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnLogout;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tagLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.DataGridView grdUsersFollowed;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnCreatePost;
         private System.Windows.Forms.DataGridView grdSubscribeTags;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
