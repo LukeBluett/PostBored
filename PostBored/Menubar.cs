@@ -46,15 +46,15 @@ namespace PostBored
             }
         }
 
-        public string LogInString(Button logOut)
+        public void LogInString(Button logOut)
         {
             if (IsLoggedIn())
             {
-                return "LogOut";
+                logOut.Text = "LogOut";
             }
             else
             {
-                return "SignIn/SignUp";
+                logOut.Text = "SignIn/SignUp";
             }
         }
 
@@ -62,12 +62,25 @@ namespace PostBored
         {
             if (IsLoggedIn())
             {
-                btn.Text = "Username";
+                btn.Text = "Create Post";
             }
             else
             {
-                btn.Text = "Username";
+                btn.Hide();
             }
+        }
+
+        public void SearchDatabase()
+        {
+
+        }
+        public void CreatePost()
+        {
+
+        }
+        public void LogOut()
+        {
+
         }
     }
 }
