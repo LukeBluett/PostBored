@@ -62,12 +62,15 @@ namespace PostBored
         {
             //Get Details of the specific member
             //lblUsername.Text += member.getMember();
-            lblUsername.Text += "Default";
-            lblEmail.Text += "";
-            lblPhoneNumber.Text += "";
-            lblJoinDate.Text += "";
-            lblPostsMade.Text += "";
-            lblLikesReceived.Text += "";
+            DateTime value = new DateTime(2014, 1, 18);
+            Member member = new Member("Name", "email", 1234567890, null, value, false, value, 5, 7);
+            
+            lblUsername.Text += member.Username;
+            lblEmail.Text += member.Email;
+            lblPhoneNumber.Text += member.Phone;
+            lblJoinDate.Text += member.JoinDate;
+            lblPostsMade.Text += member.PostsMade;
+            lblLikesReceived.Text += member.LikesReceived;
         }
 
         private void btnCreatePost_Click(object sender, EventArgs e)

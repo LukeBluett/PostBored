@@ -67,6 +67,8 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Member.cs" />
+    <Compile Include="MemberDAO.cs" />
+    <Compile Include="MemberDAOImpl.cs" />
     <Compile Include="MemberProfile.cs">
       <SubType>Form</SubType>
     </Compile>

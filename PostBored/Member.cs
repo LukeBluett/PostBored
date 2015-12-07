@@ -10,9 +10,11 @@ namespace PostBored
         private DateTime lastSeen, joinDate;
         private long phone;
         private System.Drawing.Image image;
+        private int postsMade;
+        private int likesReceived;
 
 
-        public Member(String username, String email, long phone,Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen)
+        public Member(String username, String email, long phone,Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen, int postsMade, int likesReceived)
         {
             Username = username;
             Email = email;
@@ -21,6 +23,13 @@ namespace PostBored
             this.lastSeen = lastSeen;
             this.msgPrivate = msgPrivate;
             this.image = image;
+            this.postsMade = postsMade;
+            this.likesReceived = likesReceived;
+        }
+
+        public Member()
+        {
+            // TODO: Complete member initialization
         }
 
 
@@ -59,6 +68,16 @@ namespace PostBored
         {
             get { return lastSeen; }
             set { lastSeen = value; }
+        }
+        public int PostsMade
+        {
+            get { return postsMade; }
+            set { postsMade = value; }
+        }
+        public int LikesReceived
+        {
+            get { return likesReceived; }
+            set { likesReceived = value; }
         }
 
     }
