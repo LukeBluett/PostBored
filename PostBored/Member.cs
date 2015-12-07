@@ -29,7 +29,7 @@ namespace PostBored
 
         public Member()
         {
-            // TODO: Complete member initialization
+            
         }
 
 
