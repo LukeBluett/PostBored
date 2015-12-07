@@ -16,6 +16,7 @@ namespace PostBored
         private string tag;
         public ArrayList arraylist;
         public Dictionary<string, int> dict;
+        public HashSet<string> hashSet;
         private string connectionString = PostBored.connection.GetConnection();
         OracleConnection conn;
         DateTime lastseen;
@@ -30,6 +31,7 @@ namespace PostBored
             //Runs Selecttag method ??
             arraylist = new ArrayList();
             dict = new Dictionary<string, int>();
+            hashSet = new HashSet<string>();
         }
 
         public void SelectTags()
@@ -44,21 +46,17 @@ namespace PostBored
                 ArrayList arraylist = new ArrayList();
                 while (reader.Read())
                 {
-                   // MessageBox.Show("TAG: " + tag);
                     tag = (string)reader["Tag"];
                     arraylist.Add(tag);
                 }
-               // MessageBox.Show("Added tag to arraylist --- " + arraylist.Count);
                 int size = arraylist.Count;
                     for (int i = 0; i < size; i++)
                     {
-                        //MessageBox.Show("Item in array "+arraylist[i].ToString());
 
                         string sql2 = "Select count(*) As post_id from posts where tag ='" + arraylist[i].ToString() + "'";
                         //AND '" + lastseen + "'< Post_time
                         command.CommandText = sql2;
 
-                        //MessageBox.Show(""+sql2);
                         string num = command.ExecuteScalar().ToString();
                         numOfTimePosted = Int32.Parse(num);
                         if (numOfTimePosted != 0)
@@ -66,7 +64,6 @@ namespace PostBored
                         string tag = arraylist[i].ToString();
                         dict.Add(tag,numOfTimePosted);
 
-                        //MessageBox.Show("Added item to dictionary");
                         }
                         
                     }
@@ -80,6 +77,26 @@ namespace PostBored
             }
             
 
+        }
+        public void SelectPopularTags()
+        {
+            try
+            {
+                conn.Open();
+                OracleCommand command = conn.CreateCommand();
+                string sql = "Select tag from posts";
+                command.CommandText = sql;
+                OracleDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    tag = (string)reader["Tag"];
+                    hashSet.Add(tag);
+                }
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }

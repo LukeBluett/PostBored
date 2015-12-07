@@ -144,16 +144,15 @@
             // 
             // grdSubscribeTags
             // 
+            this.grdSubscribeTags.AllowUserToAddRows = false;
             this.grdSubscribeTags.AllowUserToDeleteRows = false;
             this.grdSubscribeTags.AllowUserToOrderColumns = true;
-            this.grdSubscribeTags.AllowUserToResizeColumns = false;
-            this.grdSubscribeTags.AllowUserToResizeRows = false;
             this.grdSubscribeTags.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdSubscribeTags.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.grdSubscribeTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdSubscribeTags.EnableHeadersVisualStyles = false;
             this.grdSubscribeTags.Location = new System.Drawing.Point(-1, 97);
             this.grdSubscribeTags.Name = "grdSubscribeTags";
+            this.grdSubscribeTags.RowHeadersVisible = false;
             this.grdSubscribeTags.Size = new System.Drawing.Size(189, 516);
             this.grdSubscribeTags.TabIndex = 7;
             // 

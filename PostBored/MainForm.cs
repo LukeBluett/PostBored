@@ -18,6 +18,9 @@ namespace PostBored
         FollowMemberDAO fmember;
         Member member;
         Dictionary<string, int> dict;
+        Dictionary<string, int> followMemberDict;
+        HashSet<string> hashSet;
+        HashSet<string> followMemberHashSet;
         Boolean isLoggedIn; 
         
 
@@ -27,10 +30,21 @@ namespace PostBored
             memDAO = new MembersDAO();
             fmember = new FollowMemberDAO();
             tagsDao = new TagsDAO();
+            followMemberDict = fmember.followMember;
             dict = tagsDao.dict;
-            isLoggedIn = memDAO.isLogedIn;
+            followMemberHashSet = fmember.followMemberHashSet;
+            hashSet = tagsDao.hashSet;
+            isLoggedIn = true;
 
-            if (isLoggedIn == false)
+            if (isLoggedIn == true)
+            {
+                tagLabel.Text = "Subscribed Tags";
+                userLabel.Text = "Users Followed";
+                btnCreatePost.Text = "Create Post";
+                btnUsername.Text = "" + fmember.username2;
+                btnLogout.Text = "Logout";
+            }
+            else
             {
                 tagLabel.Text = "Popular Tags";
                 userLabel.Text = "Popular Members";
@@ -39,56 +53,82 @@ namespace PostBored
                 btnUsername.Hide();
 
             }
-            else
-            {
-                tagLabel.Text = "Subscribed Tags";
-                userLabel.Text = "Users Followed";
-                btnCreatePost.Text = "Create Post";
-                btnUsername.Text = "" + fmember.username2;
-                btnLogout.Text = "Logout";
-            }
 
     }
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //tagsDao.SelectTags();
-            //fmember.SelectFriendUsername();
-            //insertDataGrdviewSubscribeTags();
+            if (isLoggedIn == true)
+            {
+                tagsDao.SelectTags();
+                fmember.SelectFriendUsername();
+                insertDataGrdviewSubscribeTags();
+                insertUsersFollwed();
+            }
+            else
+            {
+                fmember.GetPopularMembers();
+                tagsDao.SelectPopularTags();
+                insertDataGrdviewSubscribeTags();
+                insertUsersFollwed();
+
+            }
         }
 
         private void insertDataGrdviewSubscribeTags()
         {
-            grdSubscribeTags.ColumnCount = 2;
-            grdSubscribeTags.Columns[0].Name = "Tag Name";
-            grdSubscribeTags.Columns[1].Name = "Number Of Posts";
-            
-            int size = dict.Count();
-            /*foreach (KeyValuePair<string, int> kv in dict){
-                int i = 0;
-                grdSubscribeTags.Rows[i].Cells[0].Value = kv.Key.ToString();
-                grdSubscribeTags.Rows[i].Cells[1].Value = kv.Value.ToString();
-                i++;
-            }*/
-            int i = 1;
-            grdSubscribeTags.Rows.Add(dict.Count);
-
-            foreach (KeyValuePair<string, int> kv in dict)
+            if (isLoggedIn == true)
             {
-                MessageBox.Show("wwwwwwww"+kv.Key.ToString()+" : "+kv.Value);
-                string key = kv.Key.ToString();
-                int value = kv.Value;
-                //add the values to the datagridview
+                grdSubscribeTags.ColumnCount = 2;
+                grdSubscribeTags.Columns[0].Name = "Tag Name";
+                grdSubscribeTags.Columns[1].Name = "Number Of Posts";
+                foreach (KeyValuePair<string, int> kv in dict)
+                {
+                    string key = kv.Key.ToString();
+                    int value = kv.Value;
+                    grdSubscribeTags.Rows.Add(key, value);
+
+                }
 
             }
+            else
+            {
+                grdSubscribeTags.ColumnCount = 1;
+                grdSubscribeTags.Columns[0].Name = "Tag Name";
 
-            
-            
+                foreach (string i in hashSet)
+                {
+
+                    grdSubscribeTags.Rows.Add(i);
+                }
+
+            }
         }
         private void insertUsersFollwed()
         {
-            grdUsersFollowed.ColumnCount = 2;
-            grdUsersFollowed.Columns[0].Name = "Username";
-            grdUsersFollowed.Columns[1].Name = "No. of post since last log in";
+            if (isLoggedIn == true)
+            {
+                grdUsersFollowed.ColumnCount = 2;
+                grdUsersFollowed.Columns[0].Name = "Username";
+                grdUsersFollowed.Columns[1].Name = "No. of post";
+                foreach (KeyValuePair<string, int> kv in followMemberDict)
+                {
+                    string key = kv.Key.ToString();
+                    int value = kv.Value;
+                    grdUsersFollowed.Rows.Add(key, value);
+
+                }
+            }
+            else
+            {
+                grdUsersFollowed.ColumnCount = 1;
+                grdUsersFollowed.Columns[0].Name = "Username";
+
+            }
+            foreach (string j in followMemberHashSet)
+            {
+
+                grdUsersFollowed.Rows.Add(j);
+            }
         }
 
         private void btnCreatePost_Click(object sender, EventArgs e)
@@ -111,7 +151,7 @@ namespace PostBored
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            if (isLoggedIn == true)
+            if (isLoggedIn == false)
             {
                 //go to log out
                 this.Close();
