@@ -33,8 +33,8 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblConfirm = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.lblEmail);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtEmail);
+            this.panel1.Controls.Add(this.txtPhone);
             this.panel1.Controls.Add(this.txtUserName);
             this.panel1.Controls.Add(this.lblPhone);
             this.panel1.Controls.Add(this.lblUsername);
@@ -99,20 +99,20 @@
             this.txtUserName.Size = new System.Drawing.Size(100, 20);
             this.txtUserName.TabIndex = 1;
             // 
-            // textBox2
+            // txtPhone
             // 
-            this.textBox2.Location = new System.Drawing.Point(114, 38);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txtPhone.Location = new System.Drawing.Point(114, 38);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(100, 20);
+            this.txtPhone.TabIndex = 1;
+            this.txtPhone.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // textBox3
+            // txtEmail
             // 
-            this.textBox3.Location = new System.Drawing.Point(114, 74);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 1;
+            this.txtEmail.Location = new System.Drawing.Point(114, 74);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(100, 20);
+            this.txtEmail.TabIndex = 1;
             // 
             // panel2
             // 
@@ -177,6 +177,7 @@
             this.btnImage.TabIndex = 3;
             this.btnImage.Text = "Select Image";
             this.btnImage.UseVisualStyleBackColor = true;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // panel3
             // 
@@ -194,6 +195,7 @@
             this.btnRegister.TabIndex = 0;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Register
             // 
@@ -221,8 +223,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblPhone;
