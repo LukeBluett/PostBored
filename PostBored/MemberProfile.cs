@@ -66,9 +66,16 @@ namespace PostBored
             DateTime value = new DateTime(2014, 1, 18);
             //Member member = new Member("Name", "email", 1234567890, null, value, false, value, 5, 7);
             connection connection = new connection();
-            string userName = GetSingleValue("Username", connection.GetConnection());
-
-            Member member = new Member(userName, "email", 1234567890, null, value, false, value, 5, 7);//, email, phone, image, joinDate, msgPrivate, lastSeen, postsMade, likesReceived);
+            string userName = GetSingleValue("Select Username from member where username = 'Luke1001'", "Username");
+            string email = GetSingleValue("Select Username from member where username = 'Luke1001'", "Username");
+            long phone = Convert.ToInt32(GetSingleValue("Select Username from member where username = 'Luke1001'", "Username"));
+            System.Drawing.Image image = null;
+            System.DateTime joinDate = DateTime.Now;
+            bool msgPrivate = false;
+            System.DateTime lastSeen = DateTime.Now;
+            int postsMade = 0;
+            int likesReceived = 0;
+            Member member = new Member(userName, email, phone, image, joinDate, msgPrivate, lastSeen, postsMade, likesReceived);
             
             lblUsername.Text += member.Username;
             lblEmail.Text += member.Email;
@@ -109,27 +116,42 @@ namespace PostBored
             menu.CreatePost();
         }
 
-        public string GetSingleValue(string newName, string connString)
+        public static String GetSingleValue(String strSQL, String ColName)
         {
-            string Value = "";
-            string sql =
-                "SELECT " + newName + " FROM Members";
-            using (OracleConnection conn = new OracleConnection(connString))
+            String GetSingleValue = "";
+
+            try
             {
-                OracleCommand cmd = new OracleCommand(sql, conn);
-                cmd.Parameters.Add("@Name", OracleType.VarChar);
-                cmd.Parameters["@name"].Value = newName;
-                try
-                {
+                String oradb = connection.GetConnection();
+
+                OracleConnection conn = new OracleConnection(oradb);
+
+                OracleCommand cmd = new OracleCommand(strSQL, conn);
+
+                cmd.CommandType = CommandType.Text;
+
+                if (conn.State != ConnectionState.Open)
                     conn.Open();
-                    Value = (string)cmd.ExecuteScalar();
-                }
-                catch (Exception ex)
+
+                OracleDataAdapter orada = new OracleDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                orada.Fill(dt);
+
+                int RowCount = dt.Rows.Count;
+                string row = RowCount.ToString();
+
+
+                if (RowCount > 0)
                 {
-                    Console.WriteLine(ex.Message);
+                    GetSingleValue = dt.Rows[0][ColName].ToString().Trim();
                 }
+                conn.Close();
             }
-            return Value;
+            catch (OracleException e)
+            {
+            }
+
+            return GetSingleValue;
         }
     }
 }
