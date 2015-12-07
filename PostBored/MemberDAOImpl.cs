@@ -18,21 +18,22 @@ namespace PostBored
 
         public void createPost(Member member)
         {
-            /*try
+            try
             {
 
 
                 String connstr = "Data source = studentoracle.students.ittralee.ie/orcl;User id = t00171832;Password=" + getPassword() + ";";
                 OracleConnection conn = new OracleConnection(connstr);
                 conn.Open();
-
-                string query = "insert into posts values(" + post.PostId + ", '" + post.Username + "' , '" + post.Text + "' , :BlobParameter , '" + post.Title + "' , '" + post.TimeOfPost + "' , '" + post.Tag + "' , " + post.IsDeleted + " )";
+            
+                string query = "insert into posts values('" + member.Username + "', '" + member.Email + "' , " + member.Phone + " , :BlobParameter , '" + member.Image + "' , '"
+                    + member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen + "'," + member.PostsMade + "," + member.LikesReceived + ")";
                 MessageBox.Show(query);
                 //insert the byte as oracle parameter of type blob 
                 OracleParameter blobParameter = new OracleParameter();
                 blobParameter.OracleType = OracleType.Blob;
                 blobParameter.ParameterName = "BlobParameter";
-                blobParameter.Value = post.Image;
+                blobParameter.Value = member.Image;
 
                 OracleCommand cmnd = new OracleCommand(query, conn);
                 cmnd.Parameters.Add(blobParameter);
@@ -43,10 +44,10 @@ namespace PostBored
             }
             catch (Exception ex)
             {
-            }*/
+            }
         }
 
-        public void DeleteMember(int postId)
+        public void DeleteMember(int Email)
         {
             throw new NotImplementedException();
         }
@@ -56,7 +57,7 @@ namespace PostBored
             throw new NotImplementedException();
         }
 
-        public Member GetMember(int postId)
+        public Member GetMember(int Email)
         {
             throw new NotImplementedException();
         }
