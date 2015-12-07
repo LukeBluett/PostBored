@@ -15,7 +15,7 @@ namespace PostBored
 
         static public string GetConnection()
         {
-            return "";
+            return "Data source = studentoracle.students.ittralee.ie/orcl;User id =;Password=;";
         }
 
        public void StartConnection()
