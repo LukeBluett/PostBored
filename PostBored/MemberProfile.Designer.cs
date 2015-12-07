@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCreatePost = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -66,7 +67,6 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnCreatePost = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -85,6 +85,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(707, 34);
             this.panel1.TabIndex = 0;
+            // 
+            // btnCreatePost
+            // 
+            this.btnCreatePost.Location = new System.Drawing.Point(494, 0);
+            this.btnCreatePost.Name = "btnCreatePost";
+            this.btnCreatePost.Size = new System.Drawing.Size(103, 34);
+            this.btnCreatePost.TabIndex = 4;
+            this.btnCreatePost.Text = "Create Post";
+            this.btnCreatePost.UseVisualStyleBackColor = true;
+            this.btnCreatePost.Click += new System.EventHandler(this.btnCreatePost_Click);
             // 
             // textBox1
             // 
@@ -301,14 +311,14 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(529, 289);
+            this.textBox4.Location = new System.Drawing.Point(530, 289);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(150, 20);
             this.textBox4.TabIndex = 17;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(529, 263);
+            this.textBox3.Location = new System.Drawing.Point(530, 263);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(150, 20);
             this.textBox3.TabIndex = 16;
@@ -410,7 +420,7 @@
             // lblPostsMade
             // 
             this.lblPostsMade.AutoSize = true;
-            this.lblPostsMade.Location = new System.Drawing.Point(173, 114);
+            this.lblPostsMade.Location = new System.Drawing.Point(191, 111);
             this.lblPostsMade.Name = "lblPostsMade";
             this.lblPostsMade.Size = new System.Drawing.Size(69, 13);
             this.lblPostsMade.TabIndex = 5;
@@ -419,7 +429,7 @@
             // lblJoinDate
             // 
             this.lblJoinDate.AutoSize = true;
-            this.lblJoinDate.Location = new System.Drawing.Point(173, 83);
+            this.lblJoinDate.Location = new System.Drawing.Point(202, 83);
             this.lblJoinDate.Name = "lblJoinDate";
             this.lblJoinDate.Size = new System.Drawing.Size(58, 13);
             this.lblJoinDate.TabIndex = 4;
@@ -428,7 +438,7 @@
             // lblPhoneNumber
             // 
             this.lblPhoneNumber.AutoSize = true;
-            this.lblPhoneNumber.Location = new System.Drawing.Point(173, 55);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(176, 55);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
             this.lblPhoneNumber.Size = new System.Drawing.Size(84, 13);
             this.lblPhoneNumber.TabIndex = 3;
@@ -437,7 +447,7 @@
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(173, 29);
+            this.lblEmail.Location = new System.Drawing.Point(222, 29);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(38, 13);
             this.lblEmail.TabIndex = 2;
@@ -446,11 +456,11 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(174, 4);
+            this.lblUsername.Location = new System.Drawing.Point(202, 4);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(55, 13);
+            this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "Username";
+            this.lblUsername.Text = "Username:";
             // 
             // pictureBox1
             // 
@@ -459,15 +469,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(156, 170);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnCreatePost
-            // 
-            this.btnCreatePost.Location = new System.Drawing.Point(494, 0);
-            this.btnCreatePost.Name = "btnCreatePost";
-            this.btnCreatePost.Size = new System.Drawing.Size(103, 34);
-            this.btnCreatePost.TabIndex = 4;
-            this.btnCreatePost.Text = "Create Post";
-            this.btnCreatePost.UseVisualStyleBackColor = true;
             // 
             // MemberProfile
             // 

@@ -17,16 +17,22 @@ namespace PostBored
             InitializeComponent();
         }
 
+        Menubar menu = new Menubar();
+
         private void MemberProfile_Load(object sender, EventArgs e)
         {
             //Figure out if user is logged in
-            
+            LogInFormOrLogOutForm();
 
             //Get user details
+            GetUserDetails();
 
             //show/hide details based on if user is logged in or not
 
+
             //get links details
+
+
         }
 
         private void btnUsername_Click(object sender, EventArgs e)
@@ -36,22 +42,37 @@ namespace PostBored
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //search users details
+            menu.SearchDatabase();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            //logout of current user
+            menu.LogOut();
         }
 
         private void LogInFormOrLogOutForm()
         {
-            LogInFormOrLogOutForm();
-            Menubar menu = new Menubar();
 
             menu.UsernameBtn(btnUsername);
-
+            menu.LogInString(btnLogout);
             menu.HideCreatePost(btnCreatePost);
+        }
+
+        private void GetUserDetails()
+        {
+            //Get Details of the specific member
+            //lblUsername.Text += member.getMember();
+            lblUsername.Text += "Default";
+            lblEmail.Text += "";
+            lblPhoneNumber.Text += "";
+            lblJoinDate.Text += "";
+            lblPostsMade.Text += "";
+            lblLikesReceived.Text += "";
+        }
+
+        private void btnCreatePost_Click(object sender, EventArgs e)
+        {
+            menu.CreatePost();
         }
     }
 }
