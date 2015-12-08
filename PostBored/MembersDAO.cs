@@ -78,9 +78,10 @@ namespace PostBored
 
 
                 cmd = conn.CreateCommand();
-                string sql = "Select * from members where username = " + username + "&& password =" + password;
+                string sql = "Select * from members where username = '" + username + "' AND account_password = '" + password+"'" ;
                 cmd = new OracleCommand(sql);
                 cmd.CommandType = CommandType.Text;
+                cmd.Connection = conn;
                 da = new OracleDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds, "ss");
@@ -88,12 +89,13 @@ namespace PostBored
 
                 if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password))
                 {
-                    member = null;
+                    member = createMember(ds);
                 }
                 return member;
             }
             catch (Exception ex)
             {
+                //MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -113,15 +115,16 @@ namespace PostBored
             bool msgPrivate;
             int postsMade, likesReceived;
 
-            username = (String)ds.Tables["ss"].Rows[0].ItemArray[0];
-            email = (String)ds.Tables["ss"].Rows[0].ItemArray[1];
-            phone = long.Parse(ds.Tables["ss"].Rows[0].ItemArray[2].ToString());
-            joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[4];
-            msgPrivate = (bool)ds.Tables["ss"].Rows[0].ItemArray[5];
-            lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[6];
-
-            postsMade = (int)ds.Tables["ss"].Rows[0].ItemArray[7];
-            likesReceived = (int)ds.Tables["ss"].Rows[0].ItemArray[8];
+            username = "Ian1001";// (String)ds.Tables["ss"].Rows[0].ItemArray[0];
+            email = "ian@gmail.com";// (String)ds.Tables["ss"].Rows[0].ItemArray[1];
+            phone = 087555; //(long)ds.Tables["ss"].Rows[0].ItemArray[3];
+            //joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[4];
+            msgPrivate = true; //(bool)ds.Tables["ss"].Rows[0].ItemArray[5];
+            // lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[6];
+            joinDate =  new DateTime(2015,12,15);
+            lastSeen = new DateTime(2015, 12, 15);
+            postsMade = 44;// (int)ds.Tables["ss"].Rows[0].ItemArray[7];
+            likesReceived =  (int)ds.Tables["ss"].Rows[0].ItemArray[8];
 
             // image = returnImage(()ds.Tables["ss"].Rows[0].ItemArray[4];)
             image = null;
