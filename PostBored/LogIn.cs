@@ -23,8 +23,8 @@ namespace PostBored
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
-            
+            //dfgdfgjihuih   ohh
             //member = memberDAO.(txtUsername, txtPassword);
         }
     }
-}
+}           

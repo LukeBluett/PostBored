@@ -35,7 +35,7 @@ namespace PostBored
         {
             DateTime dateNow = DateTime.Now;
             
-            member = new Member(txtUserName.Text, txtEmail.Text,txtPhone.Text,null, dateNow, false, dateNow, 0, 0);
+            member = new Member(txtUserName.Text, txtEmail.Text,long.Parse(txtPhone.Text),null, dateNow, false, dateNow, 0, 0);
             dao.InsertMember(member);
             //TODO
             //dao.UpdateImage();

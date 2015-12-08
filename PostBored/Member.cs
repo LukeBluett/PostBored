@@ -8,13 +8,13 @@ namespace PostBored
         private String username, email;
         private bool msgPrivate;
         private DateTime lastSeen, joinDate;
-        private String phone;
+        private long phone;
         private System.Drawing.Image image;
         private int postsMade;
         private int likesReceived;
 
 
-        public Member(String username, String email, String phone,Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen, int postsMade, int likesReceived)
+        public Member(String username, String email, long phone,Image image, DateTime joinDate, bool msgPrivate, DateTime lastSeen, int postsMade, int likesReceived)
         {
             Username = username;
             Email = email;
@@ -44,7 +44,7 @@ namespace PostBored
             get { return email; }
             set { email = value; }
         }
-        public String Phone
+        public long Phone
         {
             get { return phone; }
             set { phone = value; }

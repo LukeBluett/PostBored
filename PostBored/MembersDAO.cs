@@ -115,7 +115,7 @@ namespace PostBored
 
             username = (String)ds.Tables["ss"].Rows[0].ItemArray[0];
             email = (String)ds.Tables["ss"].Rows[0].ItemArray[1];
-            phone = (long)ds.Tables["ss"].Rows[0].ItemArray[2];
+            phone = long.Parse(ds.Tables["ss"].Rows[0].ItemArray[2].ToString());
             joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[4];
             msgPrivate = (bool)ds.Tables["ss"].Rows[0].ItemArray[5];
             lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[6];
