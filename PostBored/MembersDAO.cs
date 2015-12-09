@@ -129,7 +129,7 @@ namespace PostBored
             // image = returnImage(()ds.Tables["ss"].Rows[0].ItemArray[4];)
             image = null;
 
-            Member member = new Member(username, email, phone,image, joinDate, msgPrivate,lastSeen, postsMade, likesReceived);
+            Member member = new Member(username, email, phone,image, joinDate, msgPrivate,lastSeen);
                 
 
             return member;

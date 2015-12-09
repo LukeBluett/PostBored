@@ -27,7 +27,7 @@ namespace PostBored
                 conn.Open();
             
                 string query = "insert into posts values('" + member.Username + "', '" + member.Email + "' , " + member.Phone + " , :BlobParameter , '" + member.Image + "' , '"
-                    + member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen + "'," + member.PostsMade + "," + member.LikesReceived + ")";
+                    + member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen  + ")";
                 MessageBox.Show(query);
                 //insert the byte as oracle parameter of type blob 
                 OracleParameter blobParameter = new OracleParameter();

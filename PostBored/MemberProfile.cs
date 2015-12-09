@@ -75,14 +75,13 @@ namespace PostBored
             System.DateTime lastSeen = DateTime.Now;
             int postsMade = 0;
             int likesReceived = 0;
-            Member member = new Member(userName, email, phone, image, joinDate, msgPrivate, lastSeen, postsMade, likesReceived);
+            Member member = new Member(userName, email, phone, image, joinDate, msgPrivate, lastSeen);
             
             lblUsername.Text += member.Username;
             lblEmail.Text += member.Email;
             lblPhoneNumber.Text += member.Phone;
             lblJoinDate.Text += member.JoinDate;
-            lblPostsMade.Text += member.PostsMade;
-            lblLikesReceived.Text += member.LikesReceived;
+          
             
 
 
