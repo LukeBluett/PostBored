@@ -23,6 +23,7 @@ namespace PostBored
         OracleDataAdapter da;
         DataSet ds;
         Member member;
+        String dateNow = "12-DEC-2015";
         // i put this in here so i can check if the user is loged in r not
         //public Boolean isLogedIn = false;
 
@@ -111,8 +112,7 @@ namespace PostBored
             }
         }
         
-        //TODO
-        //Retrieve BLOB Image from ds
+     
         private Member createMember(DataSet ds)
         {
             String username, email;
@@ -128,17 +128,11 @@ namespace PostBored
             joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[5];
             int mPrivate = int.Parse(ds.Tables["ss"].Rows[0].ItemArray[6].ToString());
             if (mPrivate == 1)
-                msgPrivate = true; //(bool)
+                msgPrivate = true; 
             else
                 msgPrivate = false;
              lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[7];
-           // joinDate =  new DateTime(2015,12,15);
-            lastSeen = new DateTime(2015, 12, 15);
-       
-
-            // image = returnImage(()ds.Tables["ss"].Rows[0].ItemArray[4];)
-            image = null;
-
+           image = null;
             Member member = new Member(username, email, phone,image, joinDate, msgPrivate,lastSeen);
                 
 
@@ -148,17 +142,19 @@ namespace PostBored
 
         public void InsertMember(Member member)
         {
+            
             try {
                 conn.Open();
-                string query = "insert into members values('" + member.Username + "', '" + member.Email + "' , " + member.Phone + " , :BlobParameter , '" + member.Image + "' , '"
-                    + member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen + ")";
-                MessageBox.Show(query);
+                string query = "insert into members values('" + member.Username + "', '" + member.Email + "' , " + member.Phone + " , null , '" + member.Image + "' , '"
+                    + dateNow + "' , 0 , '" + dateNow + "')";
+              //  MessageBox.Show(query);
 
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
+                MessageBox.Show("Member Insert Successful\n\t\t" + member.Username);
             }catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
             finally{
                 if (conn.State == ConnectionState.Open)

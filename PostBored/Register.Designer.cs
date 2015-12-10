@@ -53,6 +53,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.lblEmail);
             this.panel1.Controls.Add(this.txtEmail);
             this.panel1.Controls.Add(this.txtPhone);
@@ -125,6 +126,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txtConfirm);
             this.panel2.Controls.Add(this.txtPassword);
             this.panel2.Controls.Add(this.lblConfirm);
@@ -163,6 +165,8 @@
             // 
             // pbImage
             // 
+            this.pbImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbImage.Location = new System.Drawing.Point(363, 13);
             this.pbImage.Name = "pbImage";
             this.pbImage.Size = new System.Drawing.Size(125, 108);
@@ -182,6 +186,7 @@
             // 
             // panel3
             // 
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.btnRegister);
             this.panel3.Location = new System.Drawing.Point(363, 200);
             this.panel3.Name = "panel3";

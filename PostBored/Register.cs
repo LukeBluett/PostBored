@@ -40,9 +40,15 @@ namespace PostBored
             
             member = new Member(txtUserName.Text, txtEmail.Text,long.Parse(txtPhone.Text),null, dateNow, false, dateNow);
             dao.InsertMember(member);
-            dao.UpdateMemberImage(image, member.Username);
-            //TODO
-            //dao.UpdateImage();
+           
+            if (image != null)
+            {
+                dao.UpdateMemberImage(image,member.Username);
+            }
+            MainForm main = new MainForm();
+            main.setMember(member);
+            main.Show();
+            this.Hide();
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -52,7 +58,7 @@ namespace PostBored
             DialogResult = fdOpenFile.ShowDialog();
             if(DialogResult == DialogResult.OK)
             {
-                FileStream fs = (FileStream)fdOpenFile.OpenFile();
+               
                 Image image = new Bitmap(fdOpenFile.FileName);
                 pbImage.Image = image;
                 //dao.UpdateMemberImage(image,member.Username);
