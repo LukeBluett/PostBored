@@ -23,7 +23,10 @@ namespace PostBored
         HashSet<string> followMemberHashSet;
         Boolean isLoggedIn; 
         
+        public void setMember(Member member)
+        {
 
+        }
         public MainForm()
         {
             InitializeComponent();
