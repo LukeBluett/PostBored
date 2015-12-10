@@ -14,16 +14,14 @@ namespace PostBored
    
     public partial class Register: Form
     {
-       private Member member;
-       private  MembersDAO dao;
-        private Image image;
-        private ImageDAO ido;
+        Member member;
+        MembersDAO dao;
+        Image image;
         public Register()
         {
             InitializeComponent();
             dao = new MembersDAO();
             image = null;
-            ido = new ImageDAO();
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -39,19 +37,32 @@ namespace PostBored
         private void btnRegister_Click(object sender, EventArgs e)
         {
             DateTime dateNow = DateTime.Now;
+            
             member = new Member(txtUserName.Text, txtEmail.Text,long.Parse(txtPhone.Text),null, dateNow, false, dateNow);
             dao.InsertMember(member);
             dao.UpdateMemberImage(image, member.Username);
+            //TODO
+            //dao.UpdateImage();
         }
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-          
+            fdOpenFile = new OpenFileDialog();
+            fdOpenFile.Filter = "Files | *.jpg; *.jpeg; *.png;";
+            DialogResult = fdOpenFile.ShowDialog();
+            if(DialogResult == DialogResult.OK)
+            {
+                FileStream fs = (FileStream)fdOpenFile.OpenFile();
+                Image image = new Bitmap(fdOpenFile.FileName);
+                pbImage.Image = image;
+                //dao.UpdateMemberImage(image,member.Username);
+
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            image = ido.getImageFromFile();
+
         }
     }
 }

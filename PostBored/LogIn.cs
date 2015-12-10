@@ -23,15 +23,19 @@ namespace PostBored
 
         private void btnLogIn_Click(object sender, EventArgs e)
         {
+
             member = memberDAO.AuthenticateUser(txtUsername.Text, txtPassword.Text);
             MainForm main = new MainForm();
             if (member != null)
             {
-                main.setMember(member);
                 main.Show();
                 this.Hide();
             }
-          }
+            
+               
+
+            
+        }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {

@@ -82,6 +82,8 @@ namespace PostBored
             conn.Open();
             try
             {
+
+
                 cmd = conn.CreateCommand();
                 string sql = "Select * from members where username = '" + username + "' AND account_password = '" + password+"'" ;
                 cmd = new OracleCommand(sql);
@@ -90,6 +92,8 @@ namespace PostBored
                 da = new OracleDataAdapter(cmd);
                 ds = new DataSet();
                 da.Fill(ds, "ss");
+
+
                 if (ds.Tables["ss"].Rows[0].ItemArray[0].Equals(username) && ds.Tables["ss"].Rows[0].ItemArray[2].Equals(password))
                 {
                     member = createMember(ds);
@@ -113,8 +117,8 @@ namespace PostBored
         {
             String username, email;
             long phone;
-            Image image;
-            DateTime lastSeen, joinDate;
+
+            Image image; DateTime lastSeen, joinDate;
             bool msgPrivate;
            
 
@@ -128,10 +132,16 @@ namespace PostBored
             else
                 msgPrivate = false;
              lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[7];
+           // joinDate =  new DateTime(2015,12,15);
             lastSeen = new DateTime(2015, 12, 15);
+       
+
+            // image = returnImage(()ds.Tables["ss"].Rows[0].ItemArray[4];)
             image = null;
 
             Member member = new Member(username, email, phone,image, joinDate, msgPrivate,lastSeen);
+                
+
             return member;
         }
        
@@ -140,15 +150,15 @@ namespace PostBored
         {
             try {
                 conn.Open();
-                string query = "insert into members values('" + member.Username + "', '" + member.Email + "' , " + member.Phone +
-                "' , null , '" + member.Image + "' , '"+ member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen + ")";
+                string query = "insert into members values('" + member.Username + "', '" + member.Email + "' , " + member.Phone + " , :BlobParameter , '" + member.Image + "' , '"
+                    + member.JoinDate + "' , " + member.MsgPrivate + " , '" + member.LastSeen + ")";
                 MessageBox.Show(query);
 
                 cmd = new OracleCommand(query, conn);
                 cmd.ExecuteNonQuery();
             }catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+
             }
             finally{
                 if (conn.State == ConnectionState.Open)
