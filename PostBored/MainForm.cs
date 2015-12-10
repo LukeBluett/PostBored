@@ -34,14 +34,14 @@ namespace PostBored
             dict = tagsDao.dict;
             followMemberHashSet = fmember.followMemberHashSet;
             hashSet = tagsDao.hashSet;
-            isLoggedIn = true;
+            isLoggedIn = false;
 
             if (isLoggedIn == true)
             {
                 tagLabel.Text = "Subscribed Tags";
                 userLabel.Text = "Users Followed";
                 btnCreatePost.Text = "Create Post";
-                btnUsername.Text = "" + fmember.username2;
+                btnUsername.Text = "" + member.Username;
                 btnLogout.Text = "Logout";
             }
             else
@@ -74,6 +74,19 @@ namespace PostBored
             }
         }
 
+      
+        public void setMember(Member member)
+        {
+            this.member = member;
+            isLoggedIn = true;
+
+            tagLabel.Text = "Subscribed Tags";
+            userLabel.Text = "Users Followed";
+            btnCreatePost.Text = "Create Post";
+            btnUsername.Text = "" + member.Username;
+            btnUsername.Show();
+            btnLogout.Text = "Logout";
+        }
         private void insertDataGrdviewSubscribeTags()
         {
             if (isLoggedIn == true)

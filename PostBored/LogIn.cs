@@ -28,7 +28,9 @@ namespace PostBored
             MainForm main = new MainForm();
             if (member != null)
             {
+                main.setMember(member);
                 main.Show();
+                
                 this.Hide();
             }
             
