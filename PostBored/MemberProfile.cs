@@ -68,7 +68,8 @@ namespace PostBored
             connection connection = new connection();
             string userName = GetSingleValue("Select Username from member where username = 'Luke1001'", "Username");
             string email = GetSingleValue("Select Username from member where username = 'Luke1001'", "Username");
-            long phone = Convert.ToInt32(GetSingleValue("Select Username from member where username = 'Luke1001'", "Username"));
+            //long phone = long.Parse(GetSingleValue("Select Username from member where username = 'Luke1001'", "Username"));
+            long phone = 087986677;
             System.Drawing.Image image = null;
             System.DateTime joinDate = DateTime.Now;
             bool msgPrivate = false;

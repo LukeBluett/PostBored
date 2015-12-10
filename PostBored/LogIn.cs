@@ -31,9 +31,17 @@ namespace PostBored
                 main.Show();
                 this.Hide();
             }
+            
                
 
             
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            Register reg = new Register();
+            reg.Show();
+            this.Hide();
         }
     }
 }           

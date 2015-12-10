@@ -15,7 +15,9 @@ namespace PostBored
 
         static public string GetConnection()
         {
-            return "Data source = studentoracle.students.ittralee.ie/orcl;User id =;Password=;";
+            return "Data source = cp3dbinstance.c4pxnpz4ojk8.us-east-1.rds.amazonaws.com/cp3db;User id =sw5;Password=sw5;";
+            //Home Database
+            //return "Data Source=localhost;User Id = System;Password = 13467913;";
         }
 
        public void StartConnection()

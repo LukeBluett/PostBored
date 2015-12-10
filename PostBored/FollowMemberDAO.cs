@@ -32,7 +32,7 @@ namespace PostBored
             {
                 conn.Open();
                 OracleCommand command = conn.CreateCommand();
-                string sql = "Select FRIEND_USERNAME from FOLLOW_MEMBERS where USERNAME = '" + username2 + "'";
+                string sql = "Select Follower_USERNAME from FOLLOW_MEMBERS where USERNAME = '" + username2 + "'";
                 command.CommandText = sql;
                 OracleDataReader reader = command.ExecuteReader();
                 ArrayList listOfMembersFollowed = new ArrayList();

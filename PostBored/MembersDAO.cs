@@ -29,9 +29,16 @@ namespace PostBored
 
         public MembersDAO()
         {
-            conn = new OracleConnection();
-            conn.ConnectionString = connectionString;
-        }
+            try {
+                conn = new OracleConnection();
+                conn.ConnectionString = connectionString;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            }
+
 
         public void SelectAllMembers()
         {
@@ -95,7 +102,7 @@ namespace PostBored
             }
             catch (Exception ex)
             {
-                //MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
                 return null;
             }
             finally
@@ -113,18 +120,21 @@ namespace PostBored
 
             Image image; DateTime lastSeen, joinDate;
             bool msgPrivate;
-            int postsMade, likesReceived;
+           
 
-            username = "Ian1001";// (String)ds.Tables["ss"].Rows[0].ItemArray[0];
-            email = "ian@gmail.com";// (String)ds.Tables["ss"].Rows[0].ItemArray[1];
-            phone = 087555; //(long)ds.Tables["ss"].Rows[0].ItemArray[3];
-            //joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[4];
-            msgPrivate = true; //(bool)ds.Tables["ss"].Rows[0].ItemArray[5];
-            // lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[6];
-            joinDate =  new DateTime(2015,12,15);
+            username =  (String)ds.Tables["ss"].Rows[0].ItemArray[0];
+            email =  (String)ds.Tables["ss"].Rows[0].ItemArray[1];
+            phone =  long.Parse(ds.Tables["ss"].Rows[0].ItemArray[3].ToString());
+            joinDate = (DateTime)ds.Tables["ss"].Rows[0].ItemArray[5];
+            int mPrivate = int.Parse(ds.Tables["ss"].Rows[0].ItemArray[6].ToString());
+            if (mPrivate == 1)
+                msgPrivate = true; //(bool)
+            else
+                msgPrivate = false;
+             lastSeen =(DateTime)ds.Tables["ss"].Rows[0].ItemArray[7];
+           // joinDate =  new DateTime(2015,12,15);
             lastSeen = new DateTime(2015, 12, 15);
-            postsMade = 44;// (int)ds.Tables["ss"].Rows[0].ItemArray[7];
-            likesReceived =  (int)ds.Tables["ss"].Rows[0].ItemArray[8];
+       
 
             // image = returnImage(()ds.Tables["ss"].Rows[0].ItemArray[4];)
             image = null;
@@ -198,7 +208,7 @@ namespace PostBored
             try
             {
                 conn.Open();
-                String sql = "Update  Members Set Imagev= :BlobParameter  where username = " + username;
+                String sql = "Update  Members Set IMG = :BlobParameter  where username = " + username;
                 OracleParameter blobParameter = new OracleParameter();
                 blobParameter.OracleType = OracleType.Blob;
                 blobParameter.ParameterName = "BlobParameter";

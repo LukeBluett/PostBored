@@ -35,7 +35,7 @@
             this.btnLogIn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblForgotPass = new System.Windows.Forms.Label();
-            this.btnForgotPass = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,27 +96,28 @@
             // lblForgotPass
             // 
             this.lblForgotPass.AutoSize = true;
-            this.lblForgotPass.Location = new System.Drawing.Point(76, 163);
+            this.lblForgotPass.Location = new System.Drawing.Point(39, 163);
             this.lblForgotPass.Name = "lblForgotPass";
-            this.lblForgotPass.Size = new System.Drawing.Size(95, 13);
+            this.lblForgotPass.Size = new System.Drawing.Size(130, 13);
             this.lblForgotPass.TabIndex = 5;
-            this.lblForgotPass.Text = "Forgot Password ?";
+            this.lblForgotPass.Text = "Not a member?  Register?";
             // 
-            // btnForgotPass
+            // btnRegister
             // 
-            this.btnForgotPass.Location = new System.Drawing.Point(189, 163);
-            this.btnForgotPass.Name = "btnForgotPass";
-            this.btnForgotPass.Size = new System.Drawing.Size(97, 23);
-            this.btnForgotPass.TabIndex = 6;
-            this.btnForgotPass.Text = "New Password";
-            this.btnForgotPass.UseVisualStyleBackColor = true;
+            this.btnRegister.Location = new System.Drawing.Point(189, 158);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(97, 23);
+            this.btnRegister.TabIndex = 6;
+            this.btnRegister.Text = "Register";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // LogIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 233);
-            this.Controls.Add(this.btnForgotPass);
+            this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.lblForgotPass);
             this.Controls.Add(this.panel1);
             this.Name = "LogIn";
@@ -137,6 +138,6 @@
         private System.Windows.Forms.Button btnLogIn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblForgotPass;
-        private System.Windows.Forms.Button btnForgotPass;
+        private System.Windows.Forms.Button btnRegister;
     }
 }

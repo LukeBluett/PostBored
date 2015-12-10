@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,10 +16,12 @@ namespace PostBored
     {
         Member member;
         MembersDAO dao;
+        Image image;
         public Register()
         {
             InitializeComponent();
             dao = new MembersDAO();
+            image = null;
         }
 
         private void Register_Load(object sender, EventArgs e)
@@ -37,13 +40,29 @@ namespace PostBored
             
             member = new Member(txtUserName.Text, txtEmail.Text,long.Parse(txtPhone.Text),null, dateNow, false, dateNow);
             dao.InsertMember(member);
+            dao.UpdateMemberImage(image, member.Username);
             //TODO
             //dao.UpdateImage();
         }
 
         private void btnImage_Click(object sender, EventArgs e)
         {
-           
+            fdOpenFile = new OpenFileDialog();
+            fdOpenFile.Filter = "Files | *.jpg; *.jpeg; *.png;";
+            DialogResult = fdOpenFile.ShowDialog();
+            if(DialogResult == DialogResult.OK)
+            {
+                FileStream fs = (FileStream)fdOpenFile.OpenFile();
+                Image image = new Bitmap(fdOpenFile.FileName);
+                pbImage.Image = image;
+                //dao.UpdateMemberImage(image,member.Username);
+
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

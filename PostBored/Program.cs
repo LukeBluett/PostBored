@@ -16,7 +16,7 @@ namespace PostBored
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MemberProfile());
+            Application.Run(new LogIn());
         }
     }
 }
